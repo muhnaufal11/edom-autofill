@@ -31,6 +31,22 @@ tersimpan), ia klik **Submit**. Setelah itu kembali ke daftar dan membuka kuesio
 3. Hapus isi default, **tempel** seluruh isi [`edom-autofill.user.js`](edom-autofill.user.js).
 4. **Ctrl + S** untuk simpan. Pastikan **Enabled**.
 
+### ⚠️ WAJIB di Chrome/Brave/Edge baru: aktifkan "Allow User Scripts"
+
+Browser Chromium versi baru (Manifest V3) memblokir userscript secara default, jadi panel
+tidak akan muncul walau script sudah Enabled. Tampermonkey biasanya menampilkan banner
+*"Please enable the `Allow User Scripts` extension setting"*. Aktifkan dulu:
+
+**Brave:**
+1. Buka tab baru → ketik **`brave://extensions`** → Enter
+2. Nyalakan **Developer mode** (toggle pojok kanan atas)
+3. Cari **Tampermonkey** → klik **Details**
+4. Scroll, cari **Allow User Scripts** → **nyalakan** toggle-nya
+5. Refresh halaman EDOM (**F5**)
+
+**Chrome:** `chrome://extensions` → Developer mode → Tampermonkey → **Details** → **Allow User Scripts** → ON.
+**Edge:** `edge://extensions` → langkah serupa.
+
 ---
 
 ## 2. Cara pakai
@@ -73,3 +89,16 @@ Saat membuka form manual, script juga otomatis **pra-isi** part yang tampil (tan
 - Hanya berjalan di `https://igracias.telkomuniversity.ac.id/survey/*`.
 - Gunakan untuk akun & kuesioner milikmu sendiri.
 - Sudah teruji end-to-end pada 2 kuesioner (ROX & ZQI) hingga berstatus "Selesai".
+
+---
+
+## 6. Troubleshooting
+
+| Gejala | Penyebab & solusi |
+|--------|-------------------|
+| **Panel tidak muncul** di halaman EDOM | Belum mengaktifkan **Allow User Scripts** (lihat bagian 1). Setelah ON, refresh halaman. |
+| Banner kuning *"Please enable the `Allow User Scripts`…"* | Sama seperti di atas — aktifkan toggle-nya lalu refresh. |
+| Script jalan tapi **berhenti di tengah** | Koneksi lambat membuat halaman belum sempat load. Naikkan `DELAY` (mis. `1500`) di file `.user.js`. |
+| Status **"⚠ Part belum lengkap"** di panel | Ada opsi/soal yang teksnya beda dari biasa. Cek manual, atau laporkan agar script disesuaikan. |
+| Panel muncul tapi tombol **Mulai Isi Semua** tidak bereaksi | Pastikan kamu berada di **halaman daftar kuesioner** (Survey → Kuesioner), lalu klik lagi. |
+| Tombol Tampermonkey tidak ada di toolbar | Klik ikon puzzle (ekstensi) di kanan atas → pin **Tampermonkey**. |
