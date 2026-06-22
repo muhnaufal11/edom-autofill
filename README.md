@@ -7,6 +7,9 @@ kuesioner yang masih "Belum Mengisi" satu per satu otomatis.
 
 > ⚠️ **Penting:** Kuesioner yang sudah ter-**Submit** **tidak bisa diubah lagi**.
 > Pastikan `TARGET_LABEL` & `ESSAY_COMMENT` sudah sesuai sebelum menjalankan mode otomatis.
+>
+> 🛈 Alat bantu pribadi — **gunakan dengan risiko sendiri**, hanya untuk akun & kuesioner
+> milikmu. Lisensi **MIT**, bebas dikembangkan ([CONTRIBUTING.md](CONTRIBUTING.md)).
 
 ---
 
@@ -102,3 +105,27 @@ Saat membuka form manual, script juga otomatis **pra-isi** part yang tampil (tan
 | Status **"⚠ Part belum lengkap"** di panel | Ada opsi/soal yang teksnya beda dari biasa. Cek manual, atau laporkan agar script disesuaikan. |
 | Panel muncul tapi tombol **Mulai Isi Semua** tidak bereaksi | Pastikan kamu berada di **halaman daftar kuesioner** (Survey → Kuesioner), lalu klik lagi. |
 | Tombol Tampermonkey tidak ada di toolbar | Klik ikon puzzle (ekstensi) di kanan atas → pin **Tampermonkey**. |
+
+---
+
+## 7. Pengembangan & kontribusi
+
+Repo ini **bebas dikembangkan** (lisensi MIT). Silakan fork & modifikasi.
+
+**Struktur kode** (`edom-autofill.user.js`, vanilla JS tanpa dependency):
+- `KONFIGURASI` (atas file) — semua opsi yang bisa diubah.
+- `fillCurrentPart()` — memilih radio "Sangat puas" + mengisi textarea.
+- `getUpdateBtn()` / `getSubmitBtn()` — deteksi tombol form.
+- `route()` — otak alur: isi → update / Submit → buka berikutnya.
+- `buildPanel()` — UI panel kanan-bawah.
+
+**Uji perubahan dengan aman:** buka satu kuesioner → klik **"Isi part ini saja"** (mengisi
+tanpa submit). Detail langkah & ide pengembangan ada di **[CONTRIBUTING.md](CONTRIBUTING.md)**.
+
+---
+
+## 8. Lisensi & disclaimer
+
+- Lisensi: **MIT** — lihat [LICENSE](LICENSE). Bebas dipakai, dimodifikasi, & disebarkan.
+- **Disclaimer:** alat bantu pribadi, **gunakan dengan risiko sendiri**. Hanya untuk akun &
+  kuesioner milik sendiri. Penulis/kontributor tidak bertanggung jawab atas penyalahgunaan.
